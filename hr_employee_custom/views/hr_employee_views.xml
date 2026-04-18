@@ -24,9 +24,14 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr_employee_entended.view_employee_form_adding_imp_fields"/>
         <field name="arch" type="xml">
-            <field name="father_name" position="attributes">
+            <xpath expr="//field[@name='father_name']" position="attributes">
                 <attribute name="required">1</attribute>
-            </field>
+            </xpath>
         </field>
     </record>
+
+    <!-- Hide Reporting Menus -->
+    <menuitem id="hr.hr_menu_hr_reports" active="False"/>
+    <menuitem id="hr.menu_hr_reporting_timesheet" active="False"/>
+
 </odoo>
