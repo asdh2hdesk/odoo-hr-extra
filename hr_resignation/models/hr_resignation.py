@@ -229,6 +229,7 @@ class HrResignation(models.Model):
                     running_contract_ids.state = 'close'
                     resignation.employee_id.departure_reason_id = departure_reason_id
                     resignation.employee_id.departure_date = resignation.approved_revealing_date
+                    resignation.employee_id.last_working_date = resignation.approved_revealing_date
                     # Removing and deactivating user
                     if resignation.employee_id.user_id:
                         resignation.employee_id.user_id.active = False
