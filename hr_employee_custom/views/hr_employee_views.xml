@@ -12,12 +12,9 @@
             <field name="job_id" position="attributes">
                 <attribute name="required">1</attribute>
             </field>
-            <field name="employee_code" position="attributes">
+            <xpath expr="//field[@name='employee_code']" position="attributes">
                 <attribute name="required">1</attribute>
-            </field>
-<!--            <xpath expr="//field[@name='employee_code']" position="attributes">-->
-<!--                <attribute name="required">1</attribute>-->
-<!--            </xpath>-->
+            </xpath>
         </field>
     </record>
 
