@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit hr.job form view to make company_id visible -->
+    <record id="view_hr_job_form_inherit_company" model="ir.ui.view">
+        <field name="name">hr.job.form.inherit.company</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id'][1]" position="attributes">
+                <attribute name="invisible">0</attribute>
+                <attribute name="groups">base.group_multi_company</attribute>
+                <attribute name="required">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit hr.job tree view to display company_id -->
+    <record id="view_hr_job_tree_inherit_company" model="ir.ui.view">
+        <field name="name">hr.job.list.inherit.company</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Update Job Positions actions to filter by company -->
+    <record id="hr.action_hr_job" model="ir.actions.act_window">
+        <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', allowed_company_ids)]</field>
+    </record>
+
+    <record id="hr_recruitment.action_hr_job_config" model="ir.actions.act_window">
+        <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', allowed_company_ids)]</field>
+    </record>
+
+    <record id="hr_recruitment.action_hr_job" model="ir.actions.act_window">
+        <field name="domain">['|', ('company_id', '=', False), ('company_id', 'in', allowed_company_ids)]</field>
+    </record>
+</odoo>

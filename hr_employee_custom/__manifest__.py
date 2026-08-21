@@ -7,6 +7,7 @@
     'depends': ['hr', 'hr_payroll', 'hr_employee_updation', 'hr_employee_entended', 'custom_css_ui'],
     'data': [
         'views/hr_employee_views.xml',
+        'views/hr_job_views.xml',
     ],
     'installable': True,
     'application': False,
