@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ============================================================
+         "Help" menu inside the existing HR Payroll Dashboard app.
+         Sits next to "Dashboard" in the same app bar
+         (menu_hr_payroll_dashboard_root, defined in hr_payroll_dashboard).
+         This module does not touch any file of hr_payroll_dashboard.
+    ============================================================= -->
+
+    <!-- Opens the HR Process presentation in a new browser tab.
+         Served as PDF (converted from the original PPTX) so it renders
+         reliably inline in the browser instead of forcing a download. -->
+    <record id="action_hr_payroll_dashboard_help_ppt" model="ir.actions.act_url">
+        <field name="name">HR Process PPT</field>
+        <field name="url">/hr_payroll_dashboard_help/static/src/HR_Process_Full_Detailed_Presentation.pdf</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- "Help" menu — sibling of "Dashboard", under the same HR Dashboard app root -->
+    <menuitem id="menu_hr_payroll_dashboard_help_root"
+        name="Help"
+        parent="hr_payroll_dashboard.menu_hr_payroll_dashboard_root"
+        sequence="2"
+        groups="base.group_user"/>
+
+    <menuitem id="menu_hr_payroll_dashboard_help_ppt"
+        name="PPT"
+        parent="menu_hr_payroll_dashboard_help_root"
+        action="action_hr_payroll_dashboard_help_ppt"
+        sequence="1"
+        groups="base.group_user"/>
+
+</odoo>
